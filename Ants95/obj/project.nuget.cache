@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "j88IPV/BCls69QDHGATxKIyl2RSCtoUW3VNoaA5vHLofBJkdH7p11uuTtJilsVUe21R8HrphpQ9mB0JH5d1l+A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Ants95.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.0\\microsoft.win32.systemevents.9.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.drawing.common\\9.0.0\\system.drawing.common.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
