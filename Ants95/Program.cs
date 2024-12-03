@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Numerics;
+﻿using static Ants95.Formula;
 
 namespace Ants95
 {
@@ -13,8 +10,8 @@ namespace Ants95
         static public int SIZE_X = 100;
         static public int SIZE_Y = 100;
 
-        static public int SIZE_dX = SIZE_X - 1;
-        static public int SIZE_dY = SIZE_Y - 1;
+        static public int DELTA_X = SIZE_X - 1;
+        static public int DELTA_Y = SIZE_Y - 1;
     }
 
     public class Programs
@@ -25,16 +22,19 @@ namespace Ants95
 
         static void Main()
         {
-            Ants95 ant = new Ants95();
-            ant.SetPosition(3231, 22);
-            Console.WriteLine(ant.position.ToString());
+            Vector2 vec = new Vector2(99, 100);
 
-            //table = Table.GenEmptyTable(Static.SIZE_X, Static.SIZE_Y);
-            //table[Static.SIZE_X, Static.SIZE_Y] = 'x';
+            Console.WriteLine(vec.position);
+
+            //Ants95 ant = new Ants95();
+            //ant.RandomPosition();
+            //Console.WriteLine(ant.position.ToString());
+
+            //table = Table.GenRndTable(Static.SIZE_X, Static.SIZE_Y);
             //Table.DrawTable(table);
-            ////SaveAsImage(table, filePath, 1);
+            //Table.SaveAsImage(table, Static.filePath, 1);
         }
-         
+
 
     }
 }

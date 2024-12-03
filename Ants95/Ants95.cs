@@ -7,9 +7,11 @@
 
         }
 
-        public Vector2 position { get => vec; }
-
         private Vector2 vec = new Vector2();
+
+        public Func<bool> method { get; set; }
+        public bool isValid { get => method?.Invoke() ?? false; }
+
 
         public void InitPosition()
         {
@@ -20,7 +22,7 @@
             if(x < Static.SIZE_X &&  y < Static.SIZE_Y)
                 this.vec = new Vector2(x, y);
             else
-                this.vec = new Vector2(Static.SIZE_dX, Static.SIZE_dY);
+                this.vec = new Vector2(Static.DELTA_X, Static.DELTA_Y);
         }
         public void RandomPosition()
         {
@@ -30,10 +32,15 @@
             if(x < Static.SIZE_X &&  y < Static.SIZE_Y)
                 this.vec = new Vector2(x, y);
             else
-                this.vec = new Vector2(Static.SIZE_dX, Static.SIZE_dY);
+                this.vec = new Vector2(Static.DELTA_X, Static.DELTA_Y);
+        }
+
+        public void SetDirection()
+        {
+            //this.vec.Direct()
         }
         public void AntsMove()
-        {
+        { 
             this.vec.Move();
         }
     }

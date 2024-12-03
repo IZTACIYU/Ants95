@@ -38,8 +38,44 @@ namespace Ants95
                 this.y = _y;
             }
 
-            public int x { get; set; }
-            public int y { get; set; }
+            private int _x;
+            private int _y;
+            public int x
+            {
+                get => this._x;
+                set
+                {
+                    if(value < 0)
+                    {
+                        _x = value + Static.SIZE_X;
+                    }
+                    else if(value > Static.DELTA_X)
+                    {
+                        _x = value - Static.SIZE_X;
+                    }
+                    else
+                        _x = value;
+                }
+            }
+            public int y
+            {
+                get => this._y;
+                set
+                {
+                    if(value < 0)
+                    {
+                        _y = value + Static.SIZE_Y;
+                    }
+                    else if(value > Static.DELTA_Y)
+                    {
+                        _y = value - Static.SIZE_Y;
+                    }
+                    else
+                        _y = value;
+                }
+            }
+
+            public Vector2 position { get => this; }
 
             public static readonly Vector2 up = new Vector2(0, 1);
             public static readonly Vector2 down = new Vector2(0, -1);
@@ -63,17 +99,16 @@ namespace Ants95
             {
                 return $"{x}, {y}";
             }
-
-            public void Direct(ref int direct, bool valid)
+            public void Direct(bool valid)
             {
                 if (valid)
-                    direct++;
+                    this.direction++;
                 else
-                    direct--;
+                    this.direction--;
             }
-            public void Reverse(ref int direct)
+            public void Reverse()
             {
-                direct = direct switch
+                this.direction = this.direction switch
                 {
                     0 => 1,
                     1 => 0,
@@ -81,30 +116,27 @@ namespace Ants95
                     3 => 2
                 };
             }
-        }
 
-    }
-    static public class ExtensionMethod
-    {
-        static public void Move(this ref Vector2 v)
-        {
-            int direct = v.direction;
-            switch(direct)
+            public void Move()
             {
-                case 0:
-                    Up(ref v); break;
-                case 1:
-                    Down(ref v); break;
-                case 2:
-                    Right(ref v); break;
-                case 3:
-                    Left(ref v); break;
+                switch(direction)
+                {
+                    case 0:
+                        Up(); break;
+                    case 1:
+                        Down(); break;
+                    case 2:
+                        Right(); break;
+                    case 3:
+                        Left(); break;
+                }
             }
+
+            public void Up() => this = this + up;
+            public void Down() => this = this + down;
+            public void Right() => this = this + right;
+            public void Left() => this = this + left;
         }
 
-        static public void Up(ref Vector2 v) => v = v + Vector2.up;
-        static public void Down(ref Vector2 v) => v = v + Vector2.down;
-        static public void Right(ref Vector2 v) => v = v + Vector2.right;
-        static public void Left(ref Vector2 v) => v = v + Vector2.left;
     }
 }

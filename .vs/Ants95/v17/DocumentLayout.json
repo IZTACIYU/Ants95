@@ -22,19 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 62,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Formula.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Formula.cs",
-              "RelativeDocumentMoniker": "Ants95\\Formula.cs",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Formula.cs",
-              "RelativeToolTip": "Ants95\\Formula.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAqwEIAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Program.cs",
+              "RelativeDocumentMoniker": "Ants95\\Program.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Program.cs",
+              "RelativeToolTip": "Ants95\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T12:32:29.413Z",
+              "WhenOpened": "2024-12-02T09:13:13.775Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -45,22 +46,22 @@
               "RelativeDocumentMoniker": "Ants95\\Ants95.cs",
               "ToolTip": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Ants95.cs",
               "RelativeToolTip": "Ants95\\Ants95.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-02T11:57:43.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Program.cs",
-              "RelativeDocumentMoniker": "Ants95\\Program.cs",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Program.cs",
-              "RelativeToolTip": "Ants95\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAiwCEAAAAlAAAA",
+              "DocumentIndex": 1,
+              "Title": "Formula.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Formula.cs",
+              "RelativeDocumentMoniker": "Ants95\\Formula.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\Formula.cs",
+              "RelativeToolTip": "Ants95\\Formula.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAIBCwI4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T09:13:13.775Z",
+              "WhenOpened": "2024-12-02T12:32:29.413Z",
               "EditorCaption": ""
             }
           ]

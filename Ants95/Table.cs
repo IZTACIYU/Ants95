@@ -91,6 +91,32 @@ namespace Ants95
 
             return table;
         }
+        static public char[,] GenRndTable(int row, int col, int time)
+        {
+            char[,] table = new char[row, col];
+
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    table[i, j] = '■';
+                }
+            }
+
+            for (int i = 0; i < time;)
+            {
+                int x = Static.rnd.Next(0, row);
+                int y = Static.rnd.Next(0, row);
+
+                if (table[x, y] != '□')
+                {
+                    table[x, y] = '□';
+                    i++;
+                }
+            }
+
+            return table;
+        }
         static public char[,] GenRndTable(Vector2 vec)
         {
             char[,] table = new char[vec.x, vec.y];
@@ -104,6 +130,32 @@ namespace Ants95
             }
 
             int time = Static.rnd.Next(vec.x * vec.y / 10, vec.x * vec.y / 2);
+
+            for (int i = 0; i < time;)
+            {
+                int x = Static.rnd.Next(0, vec.x);
+                int y = Static.rnd.Next(0, vec.y);
+
+                if (table[x, y] != '□')
+                {
+                    table[x, y] = '□';
+                    i++;
+                }
+            }
+
+            return table;
+        }
+        static public char[,] GenRndTable(Vector2 vec, int time)
+        {
+            char[,] table = new char[vec.x, vec.y];
+
+            for (int i = 0; i < vec.x; i++)
+            {
+                for (int j = 0; j < vec.y; j++)
+                {
+                    table[i, j] = '■';
+                }
+            }
 
             for (int i = 0; i < time;)
             {
