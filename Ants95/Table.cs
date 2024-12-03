@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using static Ants95.Formula;
+using static Ants95.Vector;
 
 namespace Ants95
 {

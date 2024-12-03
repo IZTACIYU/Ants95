@@ -1,28 +1,43 @@
-﻿namespace Ants95
+﻿using System.ComponentModel;
+using static Ants95.Vector;
+
+namespace Ants95
 {
-    public class Ants95 : Formula
+    public class Ants95
     {
         public Ants95()
         {
-
+            transform = new Transform();
+        }
+        public Ants95(Func<char[,], Vector2, bool> func, char[,] board)
+        {
+            method = func;
+            table = board;
+            transform = new Transform();
         }
 
-        private Vector2 vec = new Vector2();
+        public Transform transform;
 
-        public Func<bool> method { get; set; }
-        public bool isValid { get => method?.Invoke() ?? false; }
+        public char[,] table;
+
+        public Func<char[,], Vector2, bool> method { get; set; }
 
 
+        public bool isValid { get => method?.Invoke(table, transform.position) ?? false; }
+        public bool isLast { get => transform.position.x == Static.DELTA_X && transform.position.y == Static.DELTA_Y; } 
+        public bool isAny { get => transform.position.x == Static.DELTA_X || transform.position.y == Static.DELTA_Y; } 
+
+        // 스타트 포지션
         public void InitPosition()
         {
-            this.vec = Vector2.zero;
+            this.transform.SetPosition(Vector2.zero);
         }
         public void SetPosition(int x, int y)
         {
-            if(x < Static.SIZE_X &&  y < Static.SIZE_Y)
-                this.vec = new Vector2(x, y);
+            if (x < Static.SIZE_X && y < Static.SIZE_Y)
+                this.transform.SetPosition(x, y);
             else
-                this.vec = new Vector2(Static.DELTA_X, Static.DELTA_Y);
+                this.transform.SetPosition(Static.DELTA_X, Static.DELTA_Y);
         }
         public void RandomPosition()
         {
@@ -30,18 +45,27 @@
             int y = Static.rnd.Next(0, Static.SIZE_Y);
 
             if(x < Static.SIZE_X &&  y < Static.SIZE_Y)
-                this.vec = new Vector2(x, y);
+                this.transform.SetPosition(x, y);
             else
-                this.vec = new Vector2(Static.DELTA_X, Static.DELTA_Y);
+                this.transform.SetPosition(Static.DELTA_X, Static.DELTA_Y);
         }
 
-        public void SetDirection()
+
+
+        // 이동 방향 변경
+        public void SetDirection() => this.transform.Direct(isValid);
+        // 이동
+        public void AntsMove() => this.transform.Move();
+
+
+        public void SetTile()
         {
-            //this.vec.Direct()
+            this.Tile(table);
         }
-        public void AntsMove()
-        { 
-            this.vec.Move();
+        public void Tile(char[,] table)
+        {
+            if (table[transform.position.x, transform.position.y] == '■')       table[transform.position.x, transform.position.y] = '□';
+            else if (table[transform.position.x, transform.position.y] == '□')  table[transform.position.x, transform.position.y] = '■';
         }
     }
 }
