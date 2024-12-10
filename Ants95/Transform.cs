@@ -15,7 +15,7 @@
 
         public int speed = 1;
 
-        private int _direction = 3;
+        private int _direction;
         public int direction
         {
             get => _direction;

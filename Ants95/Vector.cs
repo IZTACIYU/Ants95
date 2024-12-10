@@ -56,11 +56,11 @@
             }
 
 
-            public static readonly Vector2 up = new Vector2(0, 1);
-            public static readonly Vector2 right = new Vector2(1, 0);
-            public static readonly Vector2 down = new Vector2(0, -1);
-            public static readonly Vector2 left = new Vector2(-1, 0);
-            public static readonly Vector2 zero = new Vector2(0, 0);
+            readonly static public Vector2 up = new Vector2(0, 1);
+            readonly static public Vector2 right = new Vector2(1, 0);
+            readonly static public Vector2 down = new Vector2(0, -1);
+            readonly static public Vector2 left = new Vector2(-1, 0);
+            readonly static public Vector2 zero = new Vector2(0, 0);
 
             // 사용자 정의 연산자 (operator 키워드) 오버로딩
             static public Vector2 operator + (Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);

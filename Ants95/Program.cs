@@ -27,10 +27,10 @@ namespace Ants95
             Ants95 ant2 = new Ants95(Func_1, table);
             Ants95 ant3 = new Ants95(Func_1, table);
 
-            ant.RandomPosition();
-            ant1.RandomPosition();
-            ant2.RandomPosition();
-            ant3.RandomPosition();
+            ant.SetPosition(0, Static.DELTA_Y);
+            ant1.SetPosition(0,0);
+            ant2.SetPosition(Static.DELTA_X, 0);
+            ant3.SetPosition(Static.DELTA_X, Static.DELTA_Y);
 
             Console.WriteLine(ant.transform.position);
             Console.WriteLine(ant1.transform.position);
@@ -60,13 +60,7 @@ namespace Ants95
                 ant3.SetDirection();
                 ant3.AntsMove();
 
-                if(ant.isLast)
-                {
-                    Console.WriteLine(i);
-                    Table.SaveAsImage(table, Static.filePath, 1);
-                    break;
-                }
-                if(ant1.isLast)
+                if(i > 10000000)
                 {
                     Console.WriteLine(i);
                     Table.SaveAsImage(table, Static.filePath, 1);

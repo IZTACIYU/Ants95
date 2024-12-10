@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ants95")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fbf6932386f16591408a19bd7ac10739e546191")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+552ef89e6328fdf77aa636d86e1f21a040f8c32e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ants95")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ants95")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
