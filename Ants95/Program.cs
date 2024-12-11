@@ -5,10 +5,10 @@ namespace Ants95
     static public class Static
     {
         static public Random rnd = new Random();
-        static public string filePath = "C:\\Users\\admin\\Desktop\\Git\\Ants95\\Ants95\\table.png";    // 상대경로 대체 어케함???
+        static public string filePath = "table.png";    // 상대경로 대체 어케함???
 
-        static public int SIZE_X = 1000;
-        static public int SIZE_Y = 1000;
+        static public int SIZE_X = 100;
+        static public int SIZE_Y = 100;
 
         static public int DELTA_X = SIZE_X - 1;
         static public int DELTA_Y = SIZE_Y - 1;
@@ -16,26 +16,12 @@ namespace Ants95
 
     public class Programs
     {
-        static public char[,]? table;
-
         static void Main()
         {
-            table = Table.GenFilledTable(Static.SIZE_X, Static.SIZE_Y);
+            char[,] table = Table.GenEmptyTable(Static.SIZE_X, Static.SIZE_Y);
 
             Ants95 ant = new Ants95(Func_0, table);
-            Ants95 ant1 = new Ants95(Func_1, table);
-            Ants95 ant2 = new Ants95(Func_1, table);
-            Ants95 ant3 = new Ants95(Func_1, table);
-
-            ant.SetPosition(0, Static.DELTA_Y);
-            ant1.SetPosition(0,0);
-            ant2.SetPosition(Static.DELTA_X, 0);
-            ant3.SetPosition(Static.DELTA_X, Static.DELTA_Y);
-
-            Console.WriteLine(ant.transform.position);
-            Console.WriteLine(ant1.transform.position);
-            Console.WriteLine(ant2.transform.position);
-            Console.WriteLine(ant3.transform.position);
+            ant.SetPosition(Vector2.center);
 
             Console.ReadLine();
             int i = 0;
@@ -44,25 +30,13 @@ namespace Ants95
             {
                 i++;
 
-                ant.SetTile();
-                ant.SetDirection();
-                ant.AntsMove();
+                ant.Logics();
 
-                ant1.SetTile();
-                ant1.SetDirection();
-                ant1.AntsMove();
 
-                ant2.SetTile();
-                ant2.SetDirection();
-                ant2.AntsMove();
-
-                ant3.SetTile();
-                ant3.SetDirection();
-                ant3.AntsMove();
-
-                if(i > 10000000)
+                if(ant.isAny)
                 {
                     Console.WriteLine(i);
+                    Table.DrawTable(table);
                     Table.SaveAsImage(table, Static.filePath, 1);
                     break;
                 }

@@ -38,7 +38,18 @@ namespace Ants95
                 this.transform.SetPosition(x, y);
             else
                 this.transform.SetPosition(Static.DELTA_X, Static.DELTA_Y);
+
+            Console.WriteLine("위치 수정됨");
+            Console.WriteLine($"현재 위치 : {transform.position}");
         }
+        public void SetPosition(Vector2 vec)
+        {
+            if (vec.x < Static.SIZE_X && vec.y < Static.SIZE_Y)
+                this.transform.SetPosition(vec);
+            else
+                this.transform.SetPosition(Static.DELTA_X, Static.DELTA_Y);
+        }
+
         public void RandomPosition()
         {
             int x = Static.rnd.Next(0, Static.SIZE_X);
@@ -66,6 +77,13 @@ namespace Ants95
         {
             if (table[transform.position.x, transform.position.y] == '■')       table[transform.position.x, transform.position.y] = '□';
             else if (table[transform.position.x, transform.position.y] == '□')  table[transform.position.x, transform.position.y] = '■';
+        }
+
+        public void Logics()
+        {
+            this.SetDirection();
+            this.SetTile();
+            this.AntsMove();
         }
     }
 }

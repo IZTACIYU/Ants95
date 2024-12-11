@@ -1,10 +1,14 @@
-﻿namespace Ants95
+﻿using System.Drawing.Printing;
+
+namespace Ants95
 {
     public class Transform : Vector
     {
         public Transform()
         {
             Console.WriteLine("Transform 생성됨");
+            Console.WriteLine($"생성 위치 : {position}");
+            Console.WriteLine();
         }
 
         // 직접 수정할때만
