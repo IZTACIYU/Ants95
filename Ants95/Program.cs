@@ -1,4 +1,5 @@
-﻿using static Ants95.Vector;
+﻿using System.Diagnostics;
+using static Ants95.Vector;
 
 namespace Ants95
 {
@@ -56,6 +57,11 @@ namespace Ants95
                 return true;
             else
                 return false;
+        }
+
+        static private void Debug()
+        {
+
         }
     }
 }

@@ -3,7 +3,7 @@ using static Ants95.Vector;
 
 namespace Ants95
 {
-    public class Ants95
+    public class Ants95: IProfile
     {
         public Ants95()
         {
@@ -16,21 +16,27 @@ namespace Ants95
             transform = new Transform();
         }
 
-        public Transform transform;
-
         public char[,] table;
+
+        public Transform transform;
 
         public Func<char[,], Vector2, bool> method { get; set; }
 
 
         public bool isValid { get => method?.Invoke(table, transform.position) ?? false; }
         public bool isLast { get => transform.position.x == Static.DELTA_X && transform.position.y == Static.DELTA_Y; } 
+
+        /// <summary>
+        /// Detected any border
+        /// </summary>
         public bool isAny { get => transform.position.x == Static.DELTA_X || transform.position.y == Static.DELTA_Y; } 
 
         // 스타트 포지션
         public void InitPosition()
         {
             this.transform.SetPosition(Vector2.zero);
+            Console.WriteLine("초기 위치 지정됨");
+            Console.WriteLine($"현재 위치 : {transform.position}");
         }
         public void SetPosition(int x, int y)
         {
@@ -48,6 +54,8 @@ namespace Ants95
                 this.transform.SetPosition(vec);
             else
                 this.transform.SetPosition(Static.DELTA_X, Static.DELTA_Y);
+            Console.WriteLine("위치 수정됨");
+            Console.WriteLine($"현재 위치 : {transform.position}");
         }
 
         public void RandomPosition()
@@ -59,6 +67,8 @@ namespace Ants95
                 this.transform.SetPosition(x, y);
             else
                 this.transform.SetPosition(Static.DELTA_X, Static.DELTA_Y);
+            Console.WriteLine("랜덤 위치 지정됨");
+            Console.WriteLine($"현재 위치 : {transform.position}");
         }
 
 
