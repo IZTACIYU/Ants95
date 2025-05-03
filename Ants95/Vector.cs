@@ -1,12 +1,11 @@
 ﻿namespace Ants95
 {
-    public class Vector
+    public class Vector : Component
     {
         public struct Object<T>
         {
             public T[,] tag { get; set; }
         }
-
         public struct Vector2
         {
             public Vector2() {  }

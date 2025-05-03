@@ -22,6 +22,7 @@ namespace Ants95
             char[,] table = Table.GenEmptyTable(Static.SIZE_X, Static.SIZE_Y);
 
             Ants95 ant = new Ants95(Func_0, table);
+            
             ant.SetPosition(Vector2.center);
 
             Console.ReadLine();
