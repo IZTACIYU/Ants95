@@ -2,28 +2,33 @@
 
 namespace Ants95
 {
-    public class Ants95 : Mono, ILogics
+    public class Ants95origin
     {
-        public Ants95(Func<char[,], Vector2, bool> func, char[,] board)
+        public Ants95origin()
+        {
+            transform = new TransformOrigin();
+        }
+        public Ants95origin(Func<char[,], Vector2, bool> func, char[,] board)
         {
             method = func;
             table = board;
-            transform = new Transform();
+            transform = new TransformOrigin();
         }
 
-        public Func<char[,], Vector2, bool> method { get; set; }
-        public Transform transform = new Transform();
-
-        public int speed = 1;
         public char[,] table;
+
+        public TransformOrigin transform;
+
+        public Func<char[,], Vector2, bool> method { get; set; }
+
+
         public bool isValid { get => method?.Invoke(table, transform.position) ?? false; }
-        public bool isLast { get => transform.position.x == Static.DELTA_X && transform.position.y == Static.DELTA_Y; } 
+        public bool isLast { get => transform.position.x == Static.DELTA_X && transform.position.y == Static.DELTA_Y; }
 
         /// <summary>
         /// Detected any border
         /// </summary>
-        public bool isAny { get => transform.position.x == Static.DELTA_X || transform.position.y == Static.DELTA_Y; } 
-
+        public bool isAny { get => transform.position.x == Static.DELTA_X || transform.position.y == Static.DELTA_Y; }
 
         // 스타트 포지션
         public void InitPosition()
@@ -57,7 +62,7 @@ namespace Ants95
             int x = Static.rnd.Next(0, Static.SIZE_X);
             int y = Static.rnd.Next(0, Static.SIZE_Y);
 
-            if(x < Static.SIZE_X &&  y < Static.SIZE_Y)
+            if (x < Static.SIZE_X && y < Static.SIZE_Y)
                 this.transform.SetPosition(x, y);
             else
                 this.transform.SetPosition(Static.DELTA_X, Static.DELTA_Y);
@@ -68,19 +73,19 @@ namespace Ants95
 
 
         // 이동 방향 변경
-        private void SetDirection() => this.Direct(isValid);
+        public void SetDirection() => this.transform.Direct(isValid);
         // 이동
-        private void AntsMove() => this.Move();
+        public void AntsMove() => this.transform.Move();
 
 
-        private void SetTile()
+        public void SetTile()
         {
             this.Tile(table);
         }
-        private void Tile(char[,] table)
+        public void Tile(char[,] table)
         {
-            if (table[transform.position.x, transform.position.y] == '■')       table[transform.position.x, transform.position.y] = '□';
-            else if (table[transform.position.x, transform.position.y] == '□')  table[transform.position.x, transform.position.y] = '■';
+            if (table[transform.position.x, transform.position.y] == '■') table[transform.position.x, transform.position.y] = '□';
+            else if (table[transform.position.x, transform.position.y] == '□') table[transform.position.x, transform.position.y] = '■';
         }
 
         public void Logics()
@@ -89,32 +94,5 @@ namespace Ants95
             this.SetTile();
             this.AntsMove();
         }
-
-        public void Direct(bool valid) => transform.rotation = valid ? new Querternion(transform.rotation.x + 90, 0, 0) : new Querternion(transform.rotation.x - 90, 0, 0);
-
-        public void Move()
-        {
-            transform.rotation.x.p();
-            switch (transform.rotation.x / 90)
-            {
-                case 0:
-                    Up();
-                    break;
-                case 1:
-                    Right(); 
-                    break;
-                case 2:
-                    Down(); 
-                    break;
-                case 3:
-                    Left(); 
-                    break;
-            }
-        }
-        public void Up() => transform.position += (Vector2.up * speed);
-        public void Right() => transform.position += (Vector2.right * speed);
-        public void Down() => transform.position += (Vector2.down * speed);
-        public void Left() => transform.position += (Vector2.left * speed);
-
     }
 }

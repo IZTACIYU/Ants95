@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ants95
 {
-    public class TrenchRider : Mono, ILogics
+    public class Component
     {
-        public void Logics()
-        {
-            
-        }
     }
 }

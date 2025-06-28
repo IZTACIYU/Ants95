@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Ants95
 {
-    interface IProfile
+    public class Mono
     {
-        public void Logics();
-    }
-
-    public class Component
-    {
-        public Component()
+        public Mono()
         {
             this._component = new Dictionary<Type, Component>();
         }
 
         private Dictionary<Type, Component> _component;
 
-        public void AddComponent<T>(T component) where T : Component
+        public T AddComponent<T>() where T : Component, new()
         {
-            this._component[typeof(T)] = component;
+            T component = new T();
+            _component[typeof(T)] = component;
+
+            return component;
         }
         public T GetComponent<T>() where T : Component
         {
@@ -46,5 +45,6 @@ namespace Ants95
                 return true;
             return false;
         }
+
     }
 }

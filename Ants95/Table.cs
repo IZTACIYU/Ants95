@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using static Ants95.Vector;
 
 namespace Ants95
 {
